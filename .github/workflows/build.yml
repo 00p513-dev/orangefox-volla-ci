@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-16.04
 
     env:
-      VENDOR: volla
-      DEVICE: yggdrasil
+      VENDOR: motorola
+      DEVICE: channel
       ANDROID_ROOT: /home/runner/work/orangefox/
 
     steps:
@@ -47,10 +47,10 @@ jobs:
         source of.env
         mkdir -p $ANDROID_ROOT
         cd $ANDROID_ROOT
-        repo init -u https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0 --depth=1
+        repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-10.0
         repo sync -j8 -c 
-        git clone https://github.com/luka177/android_kernel_volla_mt6763 -b lineage-16.0 kernel/volla/mt6763 
-        git clone https://github.com/luka177/android_device_volla_yggdrasil $ANDROID_ROOT/device/volla/yggdrasil
+        git clone https://github.com/SyberHexen/android_device_motorola_channel -b android-10.0 $ANDROID_ROOT/device/motorola/channel
+        git clone https://github.com/CaptainThrowback/android_device_qcom_twrp-common -b android-10 $ANDROID_ROOT/device/qcom/twrp-common
  
     - name: Build recovery
       run: |
@@ -62,6 +62,6 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Recovery image
-        path: /home/runner/work/orangefox/out/target/product/yggdrasil/OrangeFox-Unofficial-yggdrasil.zip
+        path: /home/runner/work/orangefox/out/target/product/channel/boot.img
 
     
