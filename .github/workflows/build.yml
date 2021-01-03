@@ -40,7 +40,7 @@ jobs:
         mkdir -p ~/bin
         wget 'https://storage.googleapis.com/git-repo-downloads/repo' -P ~/bin
         chmod +x ~/bin/repo
-        git config --global user.name "OrangeFox Volla Phone CI"
+        git config --global user.name "CI"
         git config --global user.email "thisemaildoesnotexist@exist.com"
     - name: Downloading source code
       run: |
