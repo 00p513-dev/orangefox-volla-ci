@@ -38,7 +38,7 @@ jobs:
           /etc/mysql \
           /etc/php
         mkdir -p ~/bin
-        wget 'https://storage.googleapis.com/git-repo-downloads/repo-1' -P ~/bin
+        curl https://storage.googleapis.com/git-repo-downloads/repo-1 > ~/bin/repo
         chmod +x ~/bin/repo
         git config --global user.name "CI"
         git config --global user.email "thisemaildoesnotexist@exist.com"
