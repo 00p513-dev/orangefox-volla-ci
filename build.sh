@@ -5,4 +5,4 @@ source build/envsetup.sh
 export ALLOW_MISSING_DEPENDENCIES=true
 export LC_ALL="C"
 lunch omni_$DEVICE-userdebug
-make -j$(nproc) bootimage
+make -j$(nproc) recoveryimage
