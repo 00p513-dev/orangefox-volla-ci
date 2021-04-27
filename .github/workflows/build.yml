@@ -42,6 +42,7 @@ jobs:
         repo init --depth=1 -u https://gitlab.com/OrangeFox/Manifest.git -b fox_9.0
         repo sync -j8 -c 
         git clone https://github.com/ReallySnow/twrp_device_google_wahoo -b android-9.0 $ANDROID_ROOT/device/google/wahoo
+        git clone https://github.com/ReallySnow/twrp_device_google_taimen/ -b android-9.0 $ANDROID_ROOT/device/google/taimen
  
     - name: Build recovery
       run: |
@@ -53,6 +54,6 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Recovery image
-        path: /home/runner/work/orangefox/out/target/product/wahoo/*.img
+        path: /home/runner/work/orangefox/out/target/product/taimen/*.img
 
     
